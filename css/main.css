@@ -397,6 +397,10 @@ img {
     opacity: 0.8;
 }
 
+#infoCookies{
+    display: block;
+}
+
 .info .tab {
     float: left;
     background-color: #122A3E;
