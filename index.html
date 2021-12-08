@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/main.css" type="text/css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito|Pacifico|Kaushan" rel="stylesheet">
     <title>ELP-Cookies</title>
     <link rel="shortcut icon" href="img/small_logo.ico" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
 </head>
 <body>
 
@@ -61,73 +63,38 @@
     </div>
 
 
-    <!--   info    -->
+    <!--   INFO SOBRE LAS COOKIES    -->
+
     <div class="info" id="infoBody">
+
         <div class="tab">
             <button id="defaultOpen" class="tablinks" onclick="openInfo(event, 'intro')">¿Que son las Cookies?</button>
             <button class="tablinks" onclick="openInfo(event, 'tipoCookies')">Tipos de Cookies</button>
-            <button class="tablinks" onclick="openInfo(event, 'extra')">Algo más</button>
+            <button class="tablinks" onclick="openInfo(event, 'formasConfigCookies')">Formas que ofrecen distintas paginas para configurar las cookies</button>
+            <button class="tablinks" onclick="openInfo(event, 'normativasCookies')">Normativas de las cookies</button>
+            <button class="tablinks" onclick="openInfo(event, 'protegerseCookies')">¿Como protegerse de las cookies?</button>
         </div>
 
-        <div id="intro" class="tabcontent" >
-            <h2>¿Que son las Cookies?</h2>
-            <p>AXXXXX.</p>
-        </div>
+        <div id="intro" class="tabcontent" ></div>
+        <div id="tipoCookies" class="tabcontent"></div>
+        <div id="formasConfigCookies" class="tabcontent"></div>
+        <div id="normativasCookies" class="tabcontent"></div>
+        <div id="protegerseCookies" class="tabcontent"></div>
 
-        <div id="tipoCookies" class="tabcontent">
-            <h2>Tipo de Cookies</h2>
-            <p>Las cookies se clasifican en función de una serie de categorías,
-                y los tipos de cookies son:
-            </p>
-            <div class="acor">
-                <button class="accordion">Cookies según la entidad que las gestione</button>
-                <div class="panel">
-                    <ul>
-                        <li>Cookies Propias</li>
-                        <p>Son aquellas que se envían al dispositivo del usuario desde un equipo o dominio gestionado por el propio editor, dondé se presta el servicio solicitado por el usuario.</p>
-                        <li>Cookies de tercero</li>
-                        <p>Son aquellas que se envían al dispositivo del usuario desde un equipo o dominio que NO es gestionado por el propio editor, es una entidad externa que trata los datos obtenidos por las cookies.</p>
-                        <p>NOTA: Las cookies que son gestionadas por el propio editor pero la información obtenida las trata un tercero, no se pueden considerar como cookies propias. </p>
-                    </ul>
-                </div>
-
-                <button class="accordion">Cookies según su duración</button>
-                <div class="panel">
-                    <ul>
-                        <li>Cookies de sesión</li>
-                        <p>Su función es recolectar y almacenar los datos mientras el usuario accede a una página web. La información que se almacena es para los datos de interés de un usuario.</p>
-                        <li>Cookies persistentes</li>
-                        <p>Su función es que los datos o la información que siguen en el dispositivo pueda ser accedidos y tratados, durante un periodo establecido por el responsable de la cookie, en un intervalo de unos minutos a varios años.</p>
-                    </ul>
-                </div>
-
-                <button class="accordion">Cookies según la finalidad</button>
-                <div class="panel">
-                    <ul>
-                        <li>Cookies técnicas</li>
-                        <p>Su función es permitirle al usuario la navegación a través de una página web, plataforma o aplicación y la utilización de diferentes opciones o servicios que en ella existan</p>
-                        <p>por ejemplo, Identifica la sesión,  controlar el tráfico y la comunicación de datos, utilizar elementos de seguridad, realizar proceso de compra de un producto, etc.
-                        </p>
-                        <li>Cookies de personalización</li>
-                        <p> Su función es permitir al usuario acceder al servicio con algunas características generales predefinidas</p>
-                        <p>por ejemplo, la configuración regional desde dónde se accede, el idioma, etc.</p>
-                        <li>Cookies de análisis</li>
-                        <p>Su función es permitir al responsable de las mismas, el seguimiento y análisis del comportamiento de los usuarios.</p>
-                        <p>Un ejemplo de este tipo de cookies es, con la información recopilada se hace una medición de las actividades y, con los datos de uso que hacen los usuarios, se realiza un análisis para mejorar los servicios del sitio web, aplicación o plataforma.</p>
-                        <li>Cookies publicitarias</li>
-                        <p>Su función es permitir la gestión de los espacios publicitarios de la forma más eficaz posible.</p>
-                        <li>Cookies de publicidad comportamental</li>
-                        <p>Su función es almacenar información del comportamiento de los usuarios, obtenida a través de su navegación, esto permite desarrollar un perfil para mostrar publicidad más personalizada. </p>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="extra" class="tabcontent">
-            <h2>Algo más de Cookies</h2>
-            <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.</p>
-        </div>
     </div>
+
+    <div class="d-flex align-items-center justify-content-center">
+        <nav aria-label="page navigation">
+            <ul class="pagination">
+                <li class="page-item"><button class="page-link" onclick="openInfo(event, 'intro')">1</button></li>
+                <li class="page-item"><button class="page-link" onclick="openInfo(event, 'tipoCookies')">2</button></li>
+                <li class="page-item"><button class="page-link" onclick="openInfo(event, 'formasConfigCookies')">3</button></li>
+                <li class="page-item"><button class="page-link" onclick="openInfo(event, 'normativasCookies')">4</button></li>
+                <li class="page-item"><button class="page-link" onclick="openInfo(event, 'protegerseCookies')">5</button></li>
+            </ul>
+        </nav>
+    </div>
+
 
 
     <div class="container_end" id="partI" >
@@ -163,9 +130,22 @@
 </footer>
 
 
+
+<script type='text/javascript'>
+    $(document).ready(function(){
+
+        $("#intro").load("intro_cookies.html");
+        $("#tipoCookies").load("tipos_cookies.html");
+        $("#formasConfigCookies").load("config_cookies.html");
+        $("#normativasCookies").load("normativas_cookies.html");
+        $("#protegerseCookies").load("proteccion_cookies.html");
+
+    });
+</script>
 <script type="text/javascript" src="js/cookies.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 
 </body>
