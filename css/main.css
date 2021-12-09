@@ -484,7 +484,10 @@ img {
     transition: max-height 0.2s ease-out;
 }
 
-
+.visitas{
+    padding-left: 10px;
+    width: 160px;
+}
 
 /*******  siguiente y atras   *******/
 
