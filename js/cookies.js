@@ -42,11 +42,7 @@ function crearModifCookieUser() {
 
 }
 
-async function text(url) {
-  var res = await fetch(url);
-    var texto = await res.text();
-  return texto;
-}
+
 
 
 async function getLocation(){
