@@ -43,7 +43,9 @@ function crearModifCookieUser() {
 }
 
 function text(url) {
-  return fetch(url).then(res => res.text());
+  var res = await fetch(url);
+    var texto = await res.text();
+  return texto;
 }
 
 
