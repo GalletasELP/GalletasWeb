@@ -42,6 +42,11 @@ function crearModifCookieUser() {
 
 }
 
+function text(url) {
+  return fetch(url).then(res => res.text());
+}
+
+
 function getLocation(){
 
     ///
@@ -50,7 +55,7 @@ function getLocation(){
     var country;
     var ip;
 
-    fetch(url).then(res => res.text()).then(data => {
+    text(url).then(data => {
         let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
         ip = data.match(ipRegex)[0];
         let locRegex = /loc=[A-Z]{2}/
