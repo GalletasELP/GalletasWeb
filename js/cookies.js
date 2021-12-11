@@ -49,20 +49,18 @@ async function text(url) {
 }
 
 
-function getLocation(){
+async function getLocation(){
 
     ///
-  
     var url = "https://www.cloudflare.com/cdn-cgi/trace";
     var country;
     var ip;
 
-    text(url).then(data => {
+    fetch(url).then(res => res.text()).then(data => {
         let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
         ip = data.match(ipRegex)[0];
         let locRegex = /loc=[A-Z]{2}/
         country = data.match(locRegex)[0];
-        console.log("IP:"ip,"; Loc",country);
 
     });
 
