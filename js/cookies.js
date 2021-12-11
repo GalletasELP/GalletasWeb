@@ -45,20 +45,26 @@ function crearModifCookieUser() {
 function getLocation(){
 
     ///
-    var url = "http://ip-api.com/json/?fields=country,city,zip,query";
+  
     var country;
     var city;
     var zip;
     var ip;
 
-    fetch(url).then(res => res.json()).then(data => {
-     	country = data.country;
-    	city = data.city ;
-    	zip = data.zip  ;
-    	ip = data.query ;
-    	console.log(data);
-    });
-    console.log(county);
+    var endpoint = 'http://ip-api.com/json/?fields=country,city,zip,query';
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+            country = response.country;
+            city = response.city ;
+            zip = response.zip  ;
+            ip = response.query ;
+        }
+    };
+    xhr.open('GET', endpoint, true);
+    xhr.send();
 
     ///
 
