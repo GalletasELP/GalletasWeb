@@ -4,6 +4,7 @@ window.onload = () => {
 
 }
 
+
 let usuario = getCookie('user');
 let bienvenido = document.getElementById('welcome');
 let bienvenido_2 = document.getElementById('welcome_2');
@@ -13,12 +14,15 @@ function checkCookieVisita() {
     let visit = (document.cookie.indexOf('visita=') === -1 ? '' : ("; " + document.cookie).split('; visita=')[1].split(';')[0]);
 
     if (usuario.length === 0) {
-        bienvenido.innerHTML = '<b>Hi, Bienvenido!  </b>';
+        crearModifCookieUser();
+        /*bienvenido.innerHTML = '<b>Hi, Bienvenido!  </b>';
         bienvenido_3.innerHTML = 'Para empezar, ingresa un usuario: ';
-        ocultarDiv();
+        ocultarDiv();*/
     } else {
         bienvenido.innerHTML = usuario + '...';
         bienvenido_2.innerHTML = 'Has visitado este sitio ' + visit + ' veces.</b>';
+        bienvenido_2.innerHTML = '<button class="btn-success" onClick="verCookies()">Ver Cookies</button>';
+
         ocultar();
     }
     visit++;
@@ -27,10 +31,46 @@ function checkCookieVisita() {
 
 function crearModifCookieUser() {
     location.reload();
+    let numAleatorio = Math.floor(Math.random() * 100);
+    let valor = "usuario-" + numAleatorio;
     let nombre = 'user';
-    let valor = document.getElementById('userName').value;
+    /*let valor = document.getElementById('userName').value;*/
+
     let expiracion = 365;
     setCookie(nombre, valor, expiracion);
+    getLocation();
+
+}
+
+function getLocation(){
+
+    ///
+    var url = "http://ip-api.com/json/?fields=country,city,zip,query";
+    var country;
+    var city;
+    var zip;
+    var ip;
+
+    fetch(url).then(res => res.json()).then(data => {
+     	country = data.country;
+    	city = data.city ;
+    	zip = data.zip  ;
+    	ip = data.query ;
+    	console.log(data);
+    });
+    console.log(county);
+
+    ///
+
+    let expiracion = 365;
+
+    setCookie('pais', country, expiracion);
+    setCookie('ciudad', city, expiracion);
+    setCookie('codigo postal', zip, expiracion);
+    setCookie('ip', ip, expiracion);
+
+
+
 }
 
 function setCookie(cname, cvalue, exdays) {

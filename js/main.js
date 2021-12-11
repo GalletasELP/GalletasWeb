@@ -25,7 +25,31 @@ function myFunction() {
 
 document.getElementById("defaultOpen").click();
 
-function openInfo(evt, title) {
+function openInfo(evt, title,souce) {
+
+    // LOADING DE LA GALLETA ---->
+    var imgDiv = document.getElementById('loadCookie');
+    if(imgDiv != null){
+        imgDiv.remove();
+    }
+    imgDiv = document.createElement('div');
+    imgDiv.setAttribute("class", "lCookie");
+    imgDiv.setAttribute("id", "loadCookie");
+    var node = document.getElementById(title);
+    node.appendChild(imgDiv);
+    /////////////////////////////////
+
+    //REGISTRAR DESDE DONDE HA CLICKEADO ---->
+
+    if(souce=='tablinks'){
+        console.log("Has accedio a : ",title," desde ",souce);
+    }
+    if(souce=='page-link'){
+        console.log("Has accedio a : ",title," desde ",souce);
+    }
+
+    ////////////////////////////////////
+
     let i, tabcontent, tablinks;
 
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -42,6 +66,9 @@ function openInfo(evt, title) {
 
     document.getElementById(title).style.display = "block";
     evt.currentTarget.className += " active";
+
+
+
 }
 
 
