@@ -60,6 +60,7 @@ function getLocation(){
         ip = data.match(ipRegex)[0];
         let locRegex = /loc=[A-Z]{2}/
         country = data.match(locRegex)[0];
+        console.log("IP:"ip,"; Loc",country);
 
     });
 
