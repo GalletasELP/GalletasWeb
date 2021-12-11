@@ -38,7 +38,7 @@ function crearModifCookieUser() {
 
     let expiracion = 365;
     setCookie(nombre, valor, expiracion);
-    getLocation();
+    //getLocation();
 
 }
 
@@ -47,8 +47,9 @@ function crearModifCookieUser() {
 
 async function getLocation(){
 
-    ///
-    var url = "https://www.cloudflare.com/cdn-cgi/trace";
+    /// NO ES POSIBLE USARLO PORQUE GITHUB PAGES LO BLOQUEA
+    
+    /*var url = "https://www.cloudflare.com/cdn-cgi/trace";
     var country;
     var ip;
 
@@ -65,7 +66,7 @@ async function getLocation(){
     let expiracion = 365;
 
     setCookie('pais', country, expiracion);
-    setCookie('ip', ip, expiracion);
+    setCookie('ip', ip, expiracion);*/
 
 
 
