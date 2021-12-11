@@ -43,7 +43,7 @@ function crearModifCookieUser() {
 
 }
 
-getUserInfo(){
+function getUserInfo(){
     
     let expiracion = 365;
     // Detectar navegador
