@@ -46,33 +46,23 @@ function getLocation(){
 
     ///
   
+    var url = "https://www.cloudflare.com/cdn-cgi/trace";
     var country;
-    var city;
-    var zip;
     var ip;
 
-    var endpoint = 'http://ip-api.com/json/?fields=country,city,zip,query';
+    fetch(url).then(res => res.text()).then(data => {
+        let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
+        ip = data.match(ipRegex)[0];
+        let locRegex = /loc=[A-Z]{2}/
+        country = data.match(locRegex)[0];
 
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
-            country = response.country;
-            city = response.city ;
-            zip = response.zip  ;
-            ip = response.query ;
-        }
-    };
-    xhr.open('GET', endpoint, true);
-    xhr.send();
+    });
 
     ///
 
     let expiracion = 365;
 
     setCookie('pais', country, expiracion);
-    setCookie('ciudad', city, expiracion);
-    setCookie('codigo postal', zip, expiracion);
     setCookie('ip', ip, expiracion);
 
 
