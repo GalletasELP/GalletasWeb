@@ -38,11 +38,38 @@ function crearModifCookieUser() {
 
     let expiracion = 365;
     setCookie(nombre, valor, expiracion);
+    getUserInfo();
     //getLocation();
 
 }
 
+getUserInfo(){
+    
+    let expiracion = 365;
+    // Detectar navegador
+    var es_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+    if(es_chrome){
+        setCookie('navegador', 'chrome' , expiracion);
+    }
+    var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    if(es_firefox){
+        setCookie('navegador', 'firefox' , expiracion);
 
+    }
+    var es_opera = navigator.userAgent.toLowerCase().indexOf('opera');
+    if(es_opera){
+        setCookie('navegador', 'opera' , expiracion);
+    }
+
+    var es_ie = navigator.userAgent.indexOf("MSIE") > -1 ;
+    if(es_ie){
+         setCookie('navegador', 'internet-explorer' , expiracion);
+    }
+    
+    setCookie('plataforma', window.clientInformation.platform , expiracion);
+    setCookie('idioma', window.clientInformation.language, expiracion);
+    
+}
 
 
 async function getLocation(){
