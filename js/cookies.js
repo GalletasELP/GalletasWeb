@@ -46,26 +46,26 @@ function crearModifCookieUser() {
 function getUserInfo(){
     
     let expiracion = 365;
-    // Detectar navegador
-    var es_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-    if(es_chrome){
-        setCookie('navegador', 'chrome' , expiracion);
-    }
-    var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-    if(es_firefox){
-        setCookie('navegador', 'firefox' , expiracion);
-
-    }
-    var es_opera = navigator.userAgent.toLowerCase().indexOf('opera');
-    if(es_opera){
-        setCookie('navegador', 'opera' , expiracion);
-    }
-
-    var es_ie = navigator.userAgent.indexOf("MSIE") > -1 ;
-    if(es_ie){
-         setCookie('navegador', 'internet-explorer' , expiracion);
-    }
     
+    // Detectar navegador
+    let userAgent = navigator.userAgent;
+    let browserName;
+
+    if(userAgent.match(/chrome|chromium|crios/i)){
+        browserName = "chrome";
+    }else if(userAgent.match(/firefox|fxios/i)){
+        browserName = "firefox";
+    }  else if(userAgent.match(/safari/i)){
+        browserName = "safari";
+    }else if(userAgent.match(/opr\//i)){
+        browserName = "opera";
+    } else if(userAgent.match(/edg/i)){
+        browserName = "edge";
+    }else{
+        browserName="No browser detection";
+    }
+    //////////////////////////////////////
+    setCookie('navegador', browserName , expiracion);
     setCookie('plataforma', window.clientInformation.platform , expiracion);
     setCookie('idioma', window.clientInformation.language, expiracion);
     
