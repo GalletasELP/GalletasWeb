@@ -11,7 +11,7 @@ function printCookie() {
   var img = document.createElement('img');
   img.setAttribute("id", "cokkie");
   img.setAttribute("class", "spin");
-  img.src = "/img/small_logo.png";
+  img.src = "https://raw.githubusercontent.com/GalletasELP/GalletasWeb/main/img/small_logo.png";
   img.width = "200";
   img.height = "200";
   img.addEventListener("animationend", deleteCookieAnim);
