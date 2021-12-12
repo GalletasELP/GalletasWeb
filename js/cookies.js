@@ -46,8 +46,32 @@ function crearModifCookieUser() {
 function getUserInfo(){
     
     let expiracion = 365;
+    let navegador = getNavegador();
+    let plataforma = sistemaOperativo();
     
-    // Detectar navegador
+    setCookie('navegador', navegador , expiracion);
+    setCookie('plataforma', plataforma , expiracion);
+    setCookie('idioma', window.clientInformation.language, expiracion);
+    
+}
+
+function sistemaOperativo() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf("win") != -1) {
+        return "Windows";
+    } else if (ua.indexOf("mac") != -1) {
+        return "MAC";
+    } else if (ua.indexOf("linux") != -1) {
+        return "Linux";
+    } else if (ua.indexOf("x11") != -1) {
+        return "Unix";
+    } else {
+        return "No reconocido";
+    }
+}
+function getNavegador(){
+
+   // Detectar navegador
     let userAgent = navigator.userAgent;
     let browserName;
     
@@ -63,40 +87,11 @@ function getUserInfo(){
     }else if(userAgent.match(/opr\//i)){
         browserName = "opera";
     }else{
-        browserName="No browser detection";
+        browserName="No reconocido";
     }
-    //////////////////////////////////////
-    setCookie('navegador', browserName , expiracion);
-    setCookie('plataforma', window.clientInformation.platform , expiracion);
-    setCookie('idioma', window.clientInformation.language, expiracion);
     
-}
 
-
-async function getLocation(){
-
-    /// NO ES POSIBLE USARLO PORQUE GITHUB PAGES LO BLOQUEA
-    
-    /*var url = "https://www.cloudflare.com/cdn-cgi/trace";
-    var country;
-    var ip;
-
-    fetch(url).then(res => res.text()).then(data => {
-        let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
-        ip = data.match(ipRegex)[0];
-        let locRegex = /loc=[A-Z]{2}/
-        country = data.match(locRegex)[0];
-
-    });
-
-    ///
-
-    let expiracion = 365;
-
-    setCookie('pais', country, expiracion);
-    setCookie('ip', ip, expiracion);*/
-
-
+    return browserName;
 
 }
 
