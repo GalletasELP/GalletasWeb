@@ -243,6 +243,13 @@ hr.dashed {
     -webkit-transition: all 0.3s ease-in-out;
 }
 
+.license_log{
+    border-width:0;
+    width: 150px;
+    display: inline;
+    padding: 10px;
+}
+
 /******* section *******/
 
 
@@ -486,7 +493,7 @@ img {
 
 .visitas{
     padding-left: 10px;
-    width: 160px;
+    width: 185px;
 }
 
 /*******  siguiente y atras   *******/
