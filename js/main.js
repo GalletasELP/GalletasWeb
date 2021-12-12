@@ -1,5 +1,6 @@
-
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+    scrollFunction()
+};
 
 function scrollFunction() {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -12,7 +13,9 @@ function scrollFunction() {
 }
 
 
-window.onscroll = function() {myFunction()};
+window.onscroll = function () {
+    myFunction()
+};
 
 function myFunction() {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -24,19 +27,19 @@ function myFunction() {
 // body info
 
 var lastPage = getCookie('ultimaPagVisitada');
-if(lastPage != ''){
-    var tab = lastPage +'-link';
+if (lastPage != '') {
+    var tab = lastPage + '-link';
     document.getElementById(tab).click();
 
-}else{
+} else {
     document.getElementById("intro-link").click();
 }
 
-function openInfo(evt, title,souce) {
+function openInfo(evt, title, souce) {
 
     // LOADING DE LA GALLETA ---->
     var imgDiv = document.getElementById('loadCookie');
-    if(imgDiv != null){
+    if (imgDiv != null) {
         imgDiv.remove();
     }
     imgDiv = document.createElement('div');
@@ -48,11 +51,11 @@ function openInfo(evt, title,souce) {
 
     //REGISTRAR DESDE DONDE HA CLICKEADO ---->
 
-    if(souce=='tablinks'){
-        console.log("Has accedio a : ",title," desde ",souce);
+    if (souce == 'tablinks') {
+        console.log("Has accedio a : ", title, " desde ", souce);
     }
-    if(souce=='page-link'){
-        console.log("Has accedio a : ",title," desde ",souce);
+    if (souce == 'page-link') {
+        console.log("Has accedio a : ", title, " desde ", souce);
     }
 
     ////////////////////////////////////
@@ -83,13 +86,11 @@ function openInfo(evt, title,souce) {
 }
 
 
-
-
 let acc = document.getElementsByClassName("accordion");
 let i;
 
 for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
+    acc[i].addEventListener("click", function () {
         this.classList.toggle("active");
         let panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
@@ -98,4 +99,25 @@ for (i = 0; i < acc.length; i++) {
             panel.style.maxHeight = panel.scrollHeight + "px";
         }
     });
+}
+
+// pag. html
+$(document).ready(function () {
+
+    $("#intro").load("intro_cookies.html");
+    $("#tipoCookies").load("tipos_cookies.html");
+    $("#formasConfigCookies").load("config_cookies.html");
+    $("#normativasCookies").load("normativas_cookies.html");
+    $("#protegerseCookies").load("proteccion_cookies.html");
+
+});
+
+
+var clickeable1 = document.getElementsByClassName('tablinks');
+for (let i = 0; i < clickeable1.length; i++) {
+    clickeable1[i].addEventListener('click', printCookie);
+}
+var clickeable2 = document.getElementsByClassName('page-item');
+for (let i = 0; i < clickeable2.length; i++) {
+    clickeable2[i].addEventListener('click', printCookie);
 }
