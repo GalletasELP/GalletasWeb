@@ -23,7 +23,14 @@ function myFunction() {
 
 // body info
 
-document.getElementById("defaultOpen").click();
+var lastPage = getCookie('ultimaPagVisitada');
+if(lastPage != ''){
+    var tab = lastPage +'-link';
+    document.getElementById(tab).click();
+
+}else{
+    document.getElementById("intro-link").click();
+}
 
 function openInfo(evt, title,souce) {
 
@@ -67,7 +74,11 @@ function openInfo(evt, title,souce) {
     document.getElementById(title).style.display = "block";
     evt.currentTarget.className += " active";
 
+    ///// GUARDAR EN COOKIE LA ULTIMA PAGINA ACCEDIDAD
 
+    setCookie('ultimaPagVisitada', title, 365);
+
+    ///////////////
 
 }
 
