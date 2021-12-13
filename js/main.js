@@ -80,7 +80,7 @@ function openInfo(evt, title, souce) {
     ///// GUARDAR EN COOKIE LA ULTIMA PAGINA ACCEDIDAD
 
     setCookie('ultimaPagVisitada', title, 365);
-
+    restore();
     ///////////////
 
 }
