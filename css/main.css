@@ -258,10 +258,11 @@ hr.dashed {
 }
 
 .container_ini {
-    padding: 20px 20px 70px 20px;
+    padding: 50px 20px 70px 20px;
     background-image: linear-gradient(-45deg, #191654, #469485);
     color: #FFFFFF;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    margin-top:40px;
     box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.4);
     opacity: 0.8;
 }
@@ -302,8 +303,7 @@ hr.dashed {
 }
 
 .column-33 img{
-    width: 335px;
-    height: 471px;
+    width: 40%;
 }
 
 
@@ -374,7 +374,7 @@ img {
 }
 
 #pag_important img {
-    width: 85%;
+    width: 100%;
 }
 
 /**************    ******************/
@@ -496,15 +496,27 @@ img {
     width: 185px;
 }
 
-/*******  siguiente y atras   *******/
+/*******  efecto glass cookies   *******/
+
+#glass{
+    background-color: var(--bg-white);
+    backdrop-filter: blur(20px);
+    border: var(--border);
+    border_radius: var(--br);
+    box-shadow: 0 10px 20px 5px rgba(0,0,0,0.5);
+    margin-right: 10%;
+}
 
 
-/*.container_end .atras{*/
-/*    position: relative;*/
-/*    float: inline-start;*/
-/*}*/
 
-/*.container_end .siguiente{*/
-/*    position: relative;*/
-/*    float: inline-end;*/
-/*}*/
+/*******  Section para mostrar cookies   *******/
+
+.container_end h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn_mostrar{
+    margin-left: 45%;
+    margin-right: 45%;
+}

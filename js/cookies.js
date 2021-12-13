@@ -4,33 +4,50 @@ window.onload = () => {
 
 }
 
-
 let usuario = getCookie('user');
 let bienvenido = document.getElementById('welcome');
 let bienvenido_2 = document.getElementById('welcome_2');
 let bienvenido_3 = document.getElementById('welcome_3');
+let div = document.getElementById('glass');
+let aceptar_cookies = false;
+
 
 function checkCookieVisita() {
     let visit = (document.cookie.indexOf('visita=') === -1 ? '' : ("; " + document.cookie).split('; visita=')[1].split(';')[0]);
 
-    if (usuario.length === 0) {
-        crearModifCookieUser();
-        /*bienvenido.innerHTML = '<b>Hi, Bienvenido!  </b>';
-        bienvenido_3.innerHTML = 'Para empezar, ingresa un usuario: ';
-        ocultarDiv();*/
-    } else {
-        bienvenido.innerHTML = usuario + '...';
-        bienvenido_2.innerHTML = 'Has visitado este sitio ' + visit + ' veces.</b>';
-        bienvenido_2.innerHTML = '<button class="btn-success" onClick="verCookies()">Ver Cookies</button>';
+    if (usuario.length === 0 && aceptar_cookies === false) {
+        //crearModifCookieUser();
+        bienvenido.innerHTML = 'Hola, Bienvenido! ';
+        bienvenido_2.innerHTML = 'Para dar comienzo al proyecto, se ha simulado un básico aviso sobre las cookies de las que se encuentran en un sitio web, ' +
+            'avisando del tratamiento y utilización de dichas cookies. De esta forma se está cumpliendo con la ley en base a proteger la privacidad de los usuarios.';
+        bienvenido_3.innerHTML = '*para continuar, pulse el botón "I agree"…';
+        div.innerHTML = '<div class="col-md-4 col-sm-12 button-fixed">\n' +
+            '                        <div class="p-3 pb-4 bg-custom text-white">\n' +
+            '                            <div class="row">\n' +
+            '                                <div class="col-10">\n' +
+            '                                    <h2>Permitir cookies</h2>\n' +
+            '                                </div>\n' +
+            '                                <div class="col-2 text-center">\n' +
+            '                                    <i class="fas fa-times"></i>\n' +
+            '                                </div>\n' +
+            '                            </div>\n' +
+            '                            <p>🍪 Usamos cookies para asegurarnos de que obtenga la mejor experiencia en nuestro sitio web. </p>\n' +
+            '                            <a  class="btn btn-danger w-100" id="crearCookie" href="#infoBody">I agree</a>\n' +
+            '                        </div>\n' +
+            '                    </div>';
 
-        ocultar();
+        ocultarDiv();
+    } else {
+        bienvenido.innerHTML = 'Nos alegra verte de nuevo...';
+        bienvenido_2.innerHTML = 'Has visitado este sitio ' + visit + ' veces.</b>';
+
     }
     visit++;
     setCookie('visita', visit, 365);
 }
 
 function crearModifCookieUser() {
-    location.reload();
+
     let numAleatorio = Math.floor(Math.random() * 100);
     let valor = "usuario-" + numAleatorio;
     let nombre = 'user';
@@ -39,20 +56,21 @@ function crearModifCookieUser() {
     let expiracion = 365;
     setCookie(nombre, valor, expiracion);
     getUserInfo();
-    //getLocation();
 
+    location.reload();
+    // actualizar();
 }
 
-function getUserInfo(){
-    
+function getUserInfo() {
+
     let expiracion = 365;
     let navegador = getNavegador();
     let plataforma = sistemaOperativo();
-    
-    setCookie('navegador', navegador , expiracion);
-    setCookie('plataforma', plataforma , expiracion);
+
+    setCookie('navegador', navegador, expiracion);
+    setCookie('plataforma', plataforma, expiracion);
     setCookie('idioma', window.clientInformation.language, expiracion);
-    
+
 }
 
 function sistemaOperativo() {
@@ -69,27 +87,27 @@ function sistemaOperativo() {
         return "No reconocido";
     }
 }
-function getNavegador(){
 
-   // Detectar navegador
+function getNavegador() {
+
+    // Detectar navegador
     let userAgent = navigator.userAgent;
     let browserName;
-    
-    if(userAgent.match(/edg/i)){
+
+    if (userAgent.match(/edg/i)) {
         browserName = "edge";
-    }
-    else if(userAgent.match(/chrome|chromium|crios/i)){
+    } else if (userAgent.match(/chrome|chromium|crios/i)) {
         browserName = "chrome";
-    }else if(userAgent.match(/firefox|fxios/i)){
+    } else if (userAgent.match(/firefox|fxios/i)) {
         browserName = "firefox";
-    }  else if(userAgent.match(/safari/i)){
+    } else if (userAgent.match(/safari/i)) {
         browserName = "safari";
-    }else if(userAgent.match(/opr\//i)){
+    } else if (userAgent.match(/opr\//i)) {
         browserName = "opera";
-    }else{
-        browserName="No reconocido";
+    } else {
+        browserName = "No reconocido";
     }
-    
+
 
     return browserName;
 
@@ -105,7 +123,7 @@ function setCookie(cname, cvalue, exdays) {
 function getCookie(cname) {
     let name = cname + "=";
     let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
+    for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
@@ -123,11 +141,16 @@ function verCookies() {
     alert("Cookies actuales:\n" + document.cookie);
 }
 
-function ocultar() {
-    document.getElementById('ocultar').style.display = 'none';
-}
 
 function ocultarDiv() {
-    document.getElementById('partI').style.display = 'none';
     document.getElementById('infoBody').style.display = 'none';
+    document.getElementById('ocultar').style.display = 'none';
+    document.getElementById('img_ocultar').style.display = 'none';
+
 }
+
+// function actualizar(){
+//
+//     document.getElementById('ini').load('index.html');
+//
+// }
