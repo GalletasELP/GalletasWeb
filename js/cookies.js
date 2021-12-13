@@ -40,9 +40,10 @@ function checkCookieVisita() {
     } else {
         bienvenido.innerHTML = 'Nos alegra verte de nuevo...';
         bienvenido_2.innerHTML = 'Has visitado este sitio ' + visit + ' veces.</b>';
+        visit++;
 
     }
-    visit++;
+    
     setCookie('visita', visit, 365);
 }
 
@@ -135,7 +136,7 @@ function getCookie(cname) {
     return "";
 }
 
-document.getElementById("verCookies").addEventListener("click", verCookies);
+
 
 function verCookies() {
     alert("Cookies actuales:\n" + document.cookie);
