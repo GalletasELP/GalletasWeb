@@ -14,7 +14,7 @@ let aceptar_cookies = false;
 
 function checkCookieVisita() {
     let visit = (document.cookie.indexOf('visita=') === -1 ? '' : ("; " + document.cookie).split('; visita=')[1].split(';')[0]);
-    visit++;
+    
     if (usuario.length === 0 && aceptar_cookies === false) {
         //crearModifCookieUser();
         bienvenido.innerHTML = 'Hola, Bienvenido! ';
@@ -43,7 +43,7 @@ function checkCookieVisita() {
         
 
     }
-    
+    visit++;
     setCookie('visita', visit, 365);
 }
 
