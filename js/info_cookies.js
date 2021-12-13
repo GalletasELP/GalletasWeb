@@ -5,7 +5,7 @@ function getInfo(){
     let usuario = getCookie('user');
     var htmltext;
 
-    htmltext = '<h3>Hola! Te tenemos identificado como : '+usuario+'</h3>';
+    htmltext = '<h3>Te tenemos identificado como : '+usuario+'</h3>';
     htmltext += '<p>En las cookies hemos guardado la siguiente información sobre ti :) </p>';
     htmltext += '<table class="table table-striped bg-light"><tr><th>Nombre</th><th>Valor</th><th>Significado</th></tr>';
 
@@ -39,7 +39,7 @@ function getInfo(){
 
     htmltext +='</table>';
 
-    htmltext +='<button type="button" class="btn btn-dark" onclick="restore()"> Cerrar </button>';
+    htmltext +='<button type="button" class="btn btn-danger btn_mostrar" onclick="restore()"> Cerrar </button>';
 
     $('#cookie_table').html(htmltext);
 
@@ -65,7 +65,7 @@ function textoGalleta(nombre){
 
 
 function restore(){
-    var textohtml = '<button type="button" class="btn btn-success" onclick="getInfo()" >Ver cookies</button>';
+    var textohtml = '<button type="button" class="btn btn-success btn_mostrar" onclick="getInfo()" >Ver cookies</button>';
     $("#cookie_table").empty();
     $('#cookie_table').html(textohtml);
 }
