@@ -9,7 +9,7 @@ function getInfo(){
     htmltext += '<p>En las cookies hemos guardado la siguiente información sobre ti :) </p>';
     htmltext += '<table class="table table-striped bg-light"><tr><th>Nombre</th><th>Valor</th><th>Significado</th></tr>';
 
-    var nombresCookies = ['user','visita','navegador','plataforma','idioma'];
+    var nombresCookies = ['user','visita','navegador','plataforma','idioma','ultimaPagVisitada'];
 
     for(let i = 0; i < nombresCookies.length ; i++){
 
@@ -23,7 +23,12 @@ function getInfo(){
             htmltext +='</td>';
 
             htmltext +='<td>';
-            htmltext +=galleta;
+            if(nombresCookies[i] == 'ultimaPagVisitada'){
+              var pagina = translatePage(galleta);
+              htmltext +=pagina;
+            }else{
+                htmltext +=galleta;
+            }
             htmltext +='</td>';
 
             var texto = textoGalleta(nombresCookies[i]);
@@ -58,11 +63,31 @@ function textoGalleta(nombre){
          texto = '<p>Esta cookie contiene el sistema operativo que estas usando para visitar nuestra página</p>';
     }else if(nombre == 'idioma'){
          texto = '<p>Esta cookie contiene el idioma que usas en tu dispositivo</p>';
+   }else if(nombre == 'ultimaPagVisitada'){
+        texto = '<p>Esta cookie contiene la ultima pestaña visitada de nuestra pagina, para que cuando vuelvas a visitarla puedas continuar donde lo dejaste</p>';
    }
 
     return texto;
 }
 
+function translatePage(tab){
+    var page = '';
+
+    if(tab=="intro"){
+        page = '¿Que son las Cookies?';
+    }else if(tab=="tipoCookies"  ){
+        page = 'Tipos de Cookies';
+    }else if(tab=="formasConfigCookies" ){
+        page = 'Formas que ofrecen distintas paginas para configurar las cookies';
+    }else if(tab=="normativasCookies" ){
+        page = 'Normativas de las cookies';
+    }else if(tab=="protegerseCookies" ){
+        page = '¿Como protegerse de las cookies?';
+    }
+
+
+    return page;
+}
 
 function restore(){
     var textohtml = '<button type="button" class="btn btn-success btn_mostrar" onclick="getInfo()" >Ver cookies</button>';
